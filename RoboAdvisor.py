@@ -57,7 +57,11 @@ print('Most recent stock data time: '+ result.iloc[0]['time'])
 print('DETAILS:')
 print('Run at : ', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 print('Stock: '+symbol)
-print('The latest closing price: '+  "${0:,.2f}".format(float(result.iloc[0]['close'])))
+
+def to_usd():
+    print('The latest closing price: '+  "${0:,.2f}".format(float(result.iloc[0]['close'])))
+    return "${0:,.2f}".format(float(result.iloc[0]['close'])))
+    
 print('The recent average high price: '+ "${0:,.2f}".format(max(result['high'].astype(float))))
 print('The recent average low price: '+ "${0:,.2f}".format(min(result['high'].astype(float))))
 if float(result.iloc[0]['close'])> result['close'][0:15].astype(float).mean():
